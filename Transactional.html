@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>Data Exploration</title>
+<title>Transactional</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13118,8 +13118,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#import library</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 
@@ -13131,55 +13130,6 @@ div#notebook {
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">sts</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="c1">#directory</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[3]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;/home/khanhp/Documents/Dev/pythonfordataanalysis&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ls</span>
@@ -13213,10 +13163,82 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Transactional data.xlsx&#39;</span><span class="p">,</span><span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;input&quot;</span><span class="p">,</span><span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index([&#39;Customer ID&#39;, &#39;Time stamp&#39;, &#39;Product Name&#39;, &#39;Unnamed: 3&#39;], dtype=&#39;object&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Removing-column">Removing column<a class="anchor-link" href="#Removing-column">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Removing column</span>
+<span class="c1"># axis=0 row axis</span>
+<span class="c1"># axis=1 column axis</span>
+<span class="c1"># inplace=True to effect change</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Unnamed: 3&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;train_predictdata.csv&#39;</span><span class="p">)</span> <span class="c1">#reading csv file</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Removing columns</span>
+<span class="n">list_drop</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Unnamed: 3&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">list_drop</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13229,7 +13251,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># first row of the dataset</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13265,101 +13287,41 @@ div#notebook {
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Loan_ID</th>
-      <th>Gender</th>
-      <th>Married</th>
-      <th>Dependents</th>
-      <th>Education</th>
-      <th>Self_Employed</th>
-      <th>ApplicantIncome</th>
-      <th>CoapplicantIncome</th>
-      <th>LoanAmount</th>
-      <th>Loan_Amount_Term</th>
-      <th>Credit_History</th>
-      <th>Property_Area</th>
-      <th>Loan_Status</th>
+      <th>Customer ID</th>
+      <th>Time stamp</th>
+      <th>Product Name</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>LP001002</td>
-      <td>Male</td>
-      <td>No</td>
-      <td>0</td>
-      <td>Graduate</td>
-      <td>No</td>
-      <td>5849</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>360.0</td>
-      <td>1.0</td>
-      <td>Urban</td>
-      <td>Y</td>
+      <td>147</td>
+      <td>2015-04-13 16:01:07</td>
+      <td>Cricket Bat MRF</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>LP001003</td>
-      <td>Male</td>
-      <td>Yes</td>
-      <td>1</td>
-      <td>Graduate</td>
-      <td>No</td>
-      <td>4583</td>
-      <td>1508.0</td>
-      <td>128.0</td>
-      <td>360.0</td>
-      <td>1.0</td>
-      <td>Rural</td>
-      <td>N</td>
+      <td>151</td>
+      <td>2015-04-15 11:00:55</td>
+      <td>Badminton Racket Yonex</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>LP001005</td>
-      <td>Male</td>
-      <td>Yes</td>
-      <td>0</td>
-      <td>Graduate</td>
-      <td>Yes</td>
-      <td>3000</td>
-      <td>0.0</td>
-      <td>66.0</td>
-      <td>360.0</td>
-      <td>1.0</td>
-      <td>Urban</td>
-      <td>Y</td>
+      <td>142</td>
+      <td>2015-03-11 14:53:04</td>
+      <td>Feather Ball Yonex</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>LP001006</td>
-      <td>Male</td>
-      <td>Yes</td>
-      <td>0</td>
-      <td>Not Graduate</td>
-      <td>No</td>
-      <td>2583</td>
-      <td>2358.0</td>
-      <td>120.0</td>
-      <td>360.0</td>
-      <td>1.0</td>
-      <td>Urban</td>
-      <td>Y</td>
+      <td>132</td>
+      <td>2015-06-11 13:20:07</td>
+      <td>Tennis Racket Wilson</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>LP001008</td>
-      <td>Male</td>
-      <td>No</td>
-      <td>0</td>
-      <td>Graduate</td>
-      <td>No</td>
-      <td>6000</td>
-      <td>0.0</td>
-      <td>141.0</td>
-      <td>360.0</td>
-      <td>1.0</td>
-      <td>Urban</td>
-      <td>Y</td>
+      <td>186</td>
+      <td>2015-04-20 17:24:56</td>
+      <td>Helmet</td>
     </tr>
   </tbody>
 </table>
@@ -13374,95 +13336,13 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[7]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>Index([&#39;Loan_ID&#39;, &#39;Gender&#39;, &#39;Married&#39;, &#39;Dependents&#39;, &#39;Education&#39;,
-       &#39;Self_Employed&#39;, &#39;ApplicantIncome&#39;, &#39;CoapplicantIncome&#39;, &#39;LoanAmount&#39;,
-       &#39;Loan_Amount_Term&#39;, &#39;Credit_History&#39;, &#39;Property_Area&#39;, &#39;Loan_Status&#39;],
-      dtype=&#39;object&#39;)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>    Variable	Description
-    Loan_ID	Unique Loan ID
-    Gender	Male/ Female
-    Married	Applicant married (Y/N)
-    Dependents	Number of dependents
-    Education	Applicant Education (Graduate/Under Graduate)
-    Self_Employed	Self employed (Y/N)
-    ApplicantIncome	Applicant income
-    CoapplicantIncome	Coapplicant income
-    LoanAmount	Loan amount in thousands
-    Loan_Amount_Term	Term of loan in months
-    Credit_History	Credit history meets guidelines
-    Property_Area	Urban/ Semi Urban/ Rural
-    Loan_Status	Loan approved (Y/N)
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="o">.</span><span class="n">dtypes</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[8]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>Loan_ID               object
-Gender                object
-Married               object
-Dependents            object
-Education             object
-Self_Employed         object
-ApplicantIncome        int64
-CoapplicantIncome    float64
-LoanAmount           float64
-Loan_Amount_Term     float64
-Credit_History       float64
-Property_Area         object
-Loan_Status           object
-dtype: object</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -13472,354 +13352,10 @@ dtype: object</pre>
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;float64&#39;</span><span class="p">])</span> <span class="c1">#get summary of numerical variables</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[9]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>CoapplicantIncome</th>
-      <th>LoanAmount</th>
-      <th>Loan_Amount_Term</th>
-      <th>Credit_History</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>614.000000</td>
-      <td>592.000000</td>
-      <td>600.00000</td>
-      <td>564.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>1621.245798</td>
-      <td>146.412162</td>
-      <td>342.00000</td>
-      <td>0.842199</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>2926.248369</td>
-      <td>85.587325</td>
-      <td>65.12041</td>
-      <td>0.364878</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>0.000000</td>
-      <td>9.000000</td>
-      <td>12.00000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>0.000000</td>
-      <td>100.000000</td>
-      <td>360.00000</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>1188.500000</td>
-      <td>128.000000</td>
-      <td>360.00000</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>2297.250000</td>
-      <td>168.000000</td>
-      <td>360.00000</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>41667.000000</td>
-      <td>700.000000</td>
-      <td>480.00000</td>
-      <td>1.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>1.LoanAmount has (614 – 592) 22 missing values.
-2. Loan_Amount_Term has (614 – 600) 14 missing values.
-3. Credit_History has (614 – 564) 50 missing values.
-4. We can also look that about 84% applicants have a credit_history. How? The mean of Credit_History field is 0.84 ( Credit_History has value 1 for those who have a credit history and 0 otherwise)
-5. The ApplicantIncome distribution seems to be in line with expectation. Same with CoapplicantIncome
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="p">[</span><span class="s1">&#39;Credit_History&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[10]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1.0    475
-0.0     89
-Name: Credit_History, dtype: int64</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="p">[</span><span class="s1">&#39;Loan_Status&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[11]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>Y    0.687296
-N    0.312704
-Name: Loan_Status, dtype: float64</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="p">[</span><span class="s1">&#39;Loan_Status&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[12]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f1f21309ef0&gt;</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">?</span>plt.bar
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;object&#39;</span><span class="p">])</span> <span class="c1">#get summary of categorical variables</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[15]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Loan_ID</th>
-      <th>Gender</th>
-      <th>Married</th>
-      <th>Dependents</th>
-      <th>Education</th>
-      <th>Self_Employed</th>
-      <th>Property_Area</th>
-      <th>Loan_Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>614</td>
-      <td>601</td>
-      <td>611</td>
-      <td>599</td>
-      <td>614</td>
-      <td>582</td>
-      <td>614</td>
-      <td>614</td>
-    </tr>
-    <tr>
-      <th>unique</th>
-      <td>614</td>
-      <td>2</td>
-      <td>2</td>
-      <td>4</td>
-      <td>2</td>
-      <td>2</td>
-      <td>3</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>top</th>
-      <td>LP002833</td>
-      <td>Male</td>
-      <td>Yes</td>
-      <td>0</td>
-      <td>Graduate</td>
-      <td>No</td>
-      <td>Semiurban</td>
-      <td>Y</td>
-    </tr>
-    <tr>
-      <th>freq</th>
-      <td>1</td>
-      <td>489</td>
-      <td>398</td>
-      <td>345</td>
-      <td>480</td>
-      <td>500</td>
-      <td>233</td>
-      <td>422</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -13829,129 +13365,33 @@ Name: Loan_Status, dtype: float64</pre>
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="o">.</span><span class="n">columns</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df3</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[17]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>Index([&#39;Loan_ID&#39;, &#39;Gender&#39;, &#39;Married&#39;, &#39;Dependents&#39;, &#39;Education&#39;,
-       &#39;Self_Employed&#39;, &#39;ApplicantIncome&#39;, &#39;CoapplicantIncome&#39;, &#39;LoanAmount&#39;,
-       &#39;Loan_Amount_Term&#39;, &#39;Credit_History&#39;, &#39;Property_Area&#39;, &#39;Loan_Status&#39;],
-      dtype=&#39;object&#39;)</pre>
 </div>
-
-</div>
-
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Removing-Row">Removing Row<a class="anchor-link" href="#Removing-Row">&#182;</a></h1>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Apply Function</span>
-<span class="c1">#Create a new function:</span>
-<span class="k">def</span> <span class="nf">num_missing</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-  <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">isnull</span><span class="p">())</span>
-<span class="c1">#Applying per column:</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Missing values per column:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_train</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">num_missing</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span> <span class="c1">#axis=0 defines that function is to be applied on each column</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Removing rows 0 and 1</span>
+<span class="c1"># axis=0 is the default, so technically, you can leave this out</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">df3</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Missing values per column:
-Loan_ID               0
-Gender               13
-Married               3
-Dependents           15
-Education             0
-Self_Employed        32
-ApplicantIncome       0
-CoapplicantIncome     0
-LoanAmount           22
-Loan_Amount_Term     14
-Credit_History       50
-Property_Area         0
-Loan_Status           0
-dtype: int64
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp1</span> <span class="o">=</span> <span class="n">df_train</span><span class="p">[</span><span class="s1">&#39;Credit_History&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
-<span class="n">temp2</span> <span class="o">=</span> <span class="n">df_train</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="s1">&#39;Loan_Status&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Credit_History&#39;</span><span class="p">],</span><span class="n">aggfunc</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s1">&#39;Y&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">})</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Frequency Table for Credit History:</span><span class="se">\n</span><span class="s1"> </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">temp1</span><span class="p">))</span>
-<span class="c1"># print temp1 </span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Probility of getting loan for each Credit History class:&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">temp2</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Frequency Table for Credit History:
- 0.0     89
-1.0    475
-Name: Credit_History, dtype: int64
-
-Probility of getting loan for each Credit History class:
-                Loan_Status
-Credit_History             
-0.0                0.078652
-1.0                0.795789
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -13961,18 +13401,7 @@ Credit_History
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> 
-<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span> 
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Credit_History&#39;</span><span class="p">)</span> 
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count of Applicants&#39;</span><span class="p">)</span> 
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Applicants by Credit_History&quot;</span><span class="p">)</span> 
-<span class="n">temp1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span> 
-<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span> 
-<span class="n">temp2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">)</span> 
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Credit_History&#39;</span><span class="p">)</span> 
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability of getting loan&#39;</span><span class="p">)</span> 
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Probability of getting loan by credit history&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df3</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13989,54 +13418,99 @@ Credit_History
 
 
 
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<div class="output_text output_subarea output_execute_result">
-<pre>Text(0.5, 1.0, &#39;Probability of getting loan by credit history&#39;)</pre>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Customer ID</th>
+      <th>Time stamp</th>
+      <th>Product Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>142</td>
+      <td>2015-03-11 14:53:04</td>
+      <td>Feather Ball Yonex</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>132</td>
+      <td>2015-06-11 13:20:07</td>
+      <td>Tennis Racket Wilson</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>186</td>
+      <td>2015-04-20 17:24:56</td>
+      <td>Helmet</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>123</td>
+      <td>2015-06-28 15:14:39</td>
+      <td>Cricket Bat MRF</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>152</td>
+      <td>2015-05-09 13:19:43</td>
+      <td>Badminton Racket Yonex</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
 </div>
 
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-"
->
+</div>
 </div>
 
 </div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXQAAAENCAYAAAAfTp5aAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4xLjAsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+17YcXAAAXOklEQVR4nO3df5DV9X3v8efLRaQRrmnZ1SqLLkZsRVSwW7DBm8DFJFAc6J2rDWhjiWn2NunKbUwyIXMzRrnJjNVM4+WGXtm0UetoCZoxXe06m4YQ7yQXdFfFtQsSNqDuuWTMlqiJtQTQ9/3jHMjJ4eye765nObsfXo+ZnTnfz/d9vufNCi8/+9nvD0UEZmY2/p1S6wbMzKw6HOhmZolwoJuZJcKBbmaWCAe6mVkiHOhmZomYUKsPrq+vj6amplp9vJnZuPT000//a0Q0lNtXs0Bvamqiu7u7Vh9vZjYuSXppsH1ecjEzS4QD3cwsEQ50M7NEZFpDl7QE+J9AHfC3EXF7yf5zgfuAdxdq1kZEx3CbOXz4MLlcjoMHDw73rVYFkyZNorGxkVNPPbXWrZjZCFQMdEl1wAbgA0AO6JLUHhE7i8q+AGyOiP8taRbQATQNt5lcLseUKVNoampC0nDfbu9ARHDgwAFyuRwzZsyodTtmNgJZllzmAX0RsTciDgGbgBUlNQH8h8LrM4D9I2nm4MGDTJ061WFeA5KYOnWqfzoyG8eyLLlMA/qLtnPA/JKaW4HvSLoJOB24aqQNOcxrx997s/Etywy93L/y0puorwLujYhG4A+B+yUdd2xJLZK6JXUPDAwMv1szMxtUlhl6DphetN3I8UsqHwOWAETENkmTgHrgp8VFEdEGtAE0NzdXfLJG09p/ytBedi/evqxizeTJk3njjTeq+rmVfPnLX+bBBx+krq6OU045hY0bNzJ//nzuuusuWlpaeNe73jXk+7PWWVqq/e/jZJclH8a6LDP0LmCmpBmSJgIrgfaSmpeBxQCSLgImAZ6CZ7Bt2zYee+wxnnnmGXp6evjud7/L9On5/3/eddddvPnmmxWPkbXOzNJWMdAj4gjQCnQCu8ifzdIraZ2k5YWyTwMfl/Qc8A/A6kjo2XYvvfQSixcv5tJLL2Xx4sW8/PLLADz66KPMnz+fuXPnctVVV/HKK68AcOutt3LjjTeycOFCzj//fNavXz/osX/yk59QX1/PaaedBkB9fT3nnHMO69evZ//+/SxatIhFixYB8IlPfILm5mYuvvhivvjFLwKUrZs8efKx4z/88MOsXr0agIceeojZs2dz2WWX8b73va+63yQzq7lMFxZFREdEXBgR74mILxfGbomI9sLrnRGxICIui4g5EfGd0Wz6RGttbeWGG26gp6eH66+/njVr1gBw5ZVXsn37dp599llWrlzJHXfccew9L7zwAp2dnTz11FPcdtttHD58uOyxP/jBD9Lf38+FF17IJz/5SZ544gkA1qxZwznnnMPWrVvZunUrkF+a6e7upqenhyeeeIKenp6ydYNZt24dnZ2dPPfcc7S3l/6QZWbjna8UzWDbtm1cd911AHzkIx/hBz/4AZA/b/5DH/oQl1xyCXfeeSe9vb3H3rNs2TJOO+006uvrOfPMM4/N3ktNnjyZp59+mra2NhoaGvjwhz/MvffeW7Z28+bNXH755cydO5fe3l527txZtm4wCxYsYPXq1Xz961/nrbfeGtZ7zWzsc6CPwNHT+2666SZaW1t5/vnn2bhx46+dw310CQWgrq6OI0eODHq8uro6Fi5cyG233cbXvvY1vvWtbx1Xs2/fPr7yla+wZcsWenp6WLZs2aDnjBefflhcc/fdd/OlL32J/v5+5syZw4EDB7L/oc1szHOgZ/De976XTZs2AfDAAw9w5ZVXAvD6668zbdo0AO67774RHXv37t3s2bPn2PaOHTs477zzAJgyZQq/+MUvAPj5z3/O6aefzhlnnMErr7zC448/fuw9xXUAZ511Frt27eLtt9/mkUceOTb+4x//mPnz57Nu3Trq6+vp7y++vMDMxrua3Q89i1qcRvTmm2/S2Nh4bPvmm29m/fr13Hjjjdx55500NDRwzz33APlffl577bVMmzaNK664gn379g3789544w1uuukmXnvtNSZMmMAFF1xAW1sbAC0tLSxdupSzzz6brVu3MnfuXC6++GLOP/98FixYcOwYpXW33347V199NdOnT2f27NnHTsP87Gc/y549e4gIFi9ezGWXXfZOvlVmNsaoViejNDc3R+kDLnbt2sVFF11Uk34sz/8Nxg+fh15d4+U8dElPR0RzuX1ecjEzS8SYXnJJyYEDB1i8ePFx41u2bGHq1Kk16MjMUjPmAj0ikrxJ1NSpU9mx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
-"
->
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Renaming-columns-in-a-pandas-DataFrame">Renaming columns in a pandas DataFrame<a class="anchor-link" href="#Renaming-columns-in-a-pandas-DataFrame">&#182;</a></h1>
 </div>
-
 </div>
+</div># Method 1: Renaming a single column
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># inplace=True to affect DataFrame</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Customer ID&#39;</span><span class="p">:</span><span class="s1">&#39;Customer_ID&#39;</span><span class="p">},</span><span class="n">inplace</span> <span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
 
+    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df_train</span><span class="p">[</span><span class="s1">&#39;Credit_History&#39;</span><span class="p">],</span> <span class="n">df_train</span><span class="p">[</span><span class="s1">&#39;Loan_Status&#39;</span><span class="p">])</span> 
-<span class="n">temp3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">],</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -14049,68 +13523,7 @@ Credit_History
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[21]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f1f1ad73898&gt;</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">table</span> <span class="o">=</span> <span class="n">df_train</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="s1">&#39;LoanAmount&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;Self_Employed&#39;</span> <span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Education&#39;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">)</span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">table</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[24]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -14132,26 +13545,42 @@ Credit_History
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th>Education</th>
-      <th>Graduate</th>
-      <th>Not Graduate</th>
-    </tr>
-    <tr>
-      <th>Self_Employed</th>
       <th></th>
-      <th></th>
+      <th>Customer_ID</th>
+      <th>Time stamp</th>
+      <th>Product Name</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>No</th>
-      <td>130.0</td>
-      <td>113.0</td>
+      <th>0</th>
+      <td>147</td>
+      <td>2015-04-13 16:01:07</td>
+      <td>Cricket Bat MRF</td>
     </tr>
     <tr>
-      <th>Yes</th>
-      <td>157.5</td>
-      <td>130.0</td>
+      <th>1</th>
+      <td>151</td>
+      <td>2015-04-15 11:00:55</td>
+      <td>Badminton Racket Yonex</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>142</td>
+      <td>2015-03-11 14:53:04</td>
+      <td>Feather Ball Yonex</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>132</td>
+      <td>2015-06-11 13:20:07</td>
+      <td>Tennis Racket Wilson</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>186</td>
+      <td>2015-04-20 17:24:56</td>
+      <td>Helmet</td>
     </tr>
   </tbody>
 </table>
@@ -14166,10 +13595,50 @@ Credit_History
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="o">.</span><span class="n">columns</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Method 2: Renaming multiple columns</span>
+<span class="n">df1_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Customer_ID&#39;</span><span class="p">,</span><span class="s1">&#39;Time_stamp&#39;</span><span class="p">,</span> <span class="s1">&#39;Product_Name&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span><span class="n">df1_cols</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df1_cols</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -14182,16 +13651,406 @@ Credit_History
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[23]:</div>
+    <div class="prompt output_prompt">Out[14]:</div>
 
 
 
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<div class="output_text output_subarea output_execute_result">
-<pre>Index([&#39;Loan_ID&#39;, &#39;Gender&#39;, &#39;Married&#39;, &#39;Dependents&#39;, &#39;Education&#39;,
-       &#39;Self_Employed&#39;, &#39;ApplicantIncome&#39;, &#39;CoapplicantIncome&#39;, &#39;LoanAmount&#39;,
-       &#39;Loan_Amount_Term&#39;, &#39;Credit_History&#39;, &#39;Property_Area&#39;, &#39;Loan_Status&#39;],
-      dtype=&#39;object&#39;)</pre>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Customer_ID</th>
+      <th>Time_stamp</th>
+      <th>Product_Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>147</td>
+      <td>2015-04-13 16:01:07</td>
+      <td>Cricket Bat MRF</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>151</td>
+      <td>2015-04-15 11:00:55</td>
+      <td>Badminton Racket Yonex</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>142</td>
+      <td>2015-03-11 14:53:04</td>
+      <td>Feather Ball Yonex</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>132</td>
+      <td>2015-06-11 13:20:07</td>
+      <td>Tennis Racket Wilson</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>186</td>
+      <td>2015-04-20 17:24:56</td>
+      <td>Helmet</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Method 3: Change columns while reading</span>
+<span class="c1"># df2 = pd.read_excel(&#39;Transactional data.xlsx&#39;, names = df1_cols, inplace =True, )</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Method 4: Replacing spaces with underscores for all columns</span>
+<span class="c1"># If you have a 100 columns, some had spaces in them and you want to replace all the spaces with underscores</span>
+<span class="n">df2</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[16]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Customer_ID</th>
+      <th>Time_stamp</th>
+      <th>Product_Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>147</td>
+      <td>2015-04-13 16:01:07</td>
+      <td>Cricket Bat MRF</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>151</td>
+      <td>2015-04-15 11:00:55</td>
+      <td>Badminton Racket Yonex</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>142</td>
+      <td>2015-03-11 14:53:04</td>
+      <td>Feather Ball Yonex</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>132</td>
+      <td>2015-06-11 13:20:07</td>
+      <td>Tennis Racket Wilson</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>186</td>
+      <td>2015-04-20 17:24:56</td>
+      <td>Helmet</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;Product_Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count_values</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-29-d83d0ac58166&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>df2<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;Product_Name&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>count_values
+
+<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/pandas/core/generic.py</span> in <span class="ansi-cyan-fg">__getattr__</span><span class="ansi-blue-fg">(self, name)</span>
+<span class="ansi-green-intense-fg ansi-bold">   5178</span>             <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_info_axis<span class="ansi-blue-fg">.</span>_can_hold_identifiers_and_holds_name<span class="ansi-blue-fg">(</span>name<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   5179</span>                 <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">[</span>name<span class="ansi-blue-fg">]</span>
+<span class="ansi-green-fg">-&gt; 5180</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> object<span class="ansi-blue-fg">.</span>__getattribute__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   5181</span> 
+<span class="ansi-green-intense-fg ansi-bold">   5182</span>     <span class="ansi-green-fg">def</span> __setattr__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> value<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">AttributeError</span>: &#39;Series&#39; object has no attribute &#39;count_values&#39;</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[22]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Customer_ID</th>
+      <th>Time_stamp</th>
+      <th>Product_Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>147</td>
+      <td>2015-04-13 16:01:07</td>
+      <td>Cricket Bat MRF</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>151</td>
+      <td>2015-04-15 11:00:55</td>
+      <td>Badminton Racket Yonex</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>142</td>
+      <td>2015-03-11 14:53:04</td>
+      <td>Feather Ball Yonex</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>132</td>
+      <td>2015-06-11 13:20:07</td>
+      <td>Tennis Racket Wilson</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>186</td>
+      <td>2015-04-20 17:24:56</td>
+      <td>Helmet</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>123</td>
+      <td>2015-06-28 15:14:39</td>
+      <td>Cricket Bat MRF</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>152</td>
+      <td>2015-05-09 13:19:43</td>
+      <td>Badminton Racket Yonex</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>193</td>
+      <td>2015-04-12 12:31:01</td>
+      <td>Feather Ball Yonex</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>196</td>
+      <td>2015-04-13 16:01:07</td>
+      <td>Cricket Bat MRF</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>161</td>
+      <td>2015-04-15 11:00:55</td>
+      <td>Badminton Racket Yonex</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>130</td>
+      <td>2015-03-11 14:53:04</td>
+      <td>Feather Ball Yonex</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>106</td>
+      <td>2015-06-11 13:20:07</td>
+      <td>Tennis Racket Wilson</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>163</td>
+      <td>2015-04-20 17:24:56</td>
+      <td>Helmet</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>200</td>
+      <td>2015-06-28 15:14:39</td>
+      <td>Cricket Bat MRF</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>175</td>
+      <td>2015-05-09 13:19:43</td>
+      <td>Badminton Racket Yonex</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>162</td>
+      <td>2015-04-12 12:31:01</td>
+      <td>Feather Ball Yonex</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>107</td>
+      <td>2015-04-13 16:01:07</td>
+      <td>Cricket Bat MRF</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>121</td>
+      <td>2015-04-15 11:00:55</td>
+      <td>Badminton Racket Yonex</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>171</td>
+      <td>2015-03-11 14:53:04</td>
+      <td>Feather Ball Yonex</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>192</td>
+      <td>2015-06-11 13:20:07</td>
+      <td>Tennis Racket Wilson</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
 </div>
