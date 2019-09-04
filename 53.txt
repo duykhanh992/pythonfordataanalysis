@@ -1,0 +1,43 @@
+GENERAL FUNCTION: 
+Assists in the analysis of data within the Audit Division in support of complex financial, operation, and compliance audits for various Bancorp lines of business and functional areas, under the direction of the Audit Data Analytics Manager. Utilizes data analysis competencies and business knowledge to help identify, quantify, and assess business processes using data from a variety of sources. Provides reporting and analysis supporting the Audit Division and Bancorp lines of business. 
+
+Responsible and accountable for risk by openly exchanging ideas and opinions, elevating concerns, and personally following policies and procedures as defined. Accountable for always doing the right thing for customers and colleagues, and ensures that actions and behaviors drive a positive customer experience. While operating within the Bank's risk appetite, achieves results by consistently identifying, assessing, monitoring, and reporting risks of all types. 
+
+ESSENTIAL DUTIES & RESPONSIBILITIES: 
+. Data quality and integrity 
+. Data transformation and cleansing 
+. Data quality assessment and profiling 
+. Data reconciliation 
+. Data conversion validation 
+. Data quality monitoring 
+. Work with Audit Data Analytics Senior Analyst personnel to design and conduct analysis and standard reporting to meet overall audit objectives. 
+. Responsible for manipulating large data files and transforming the data into business information that helps audit teams fulfill strategic objectives. 
+. Assist with automation and publishing of existing ad-hoc reports. 
+. Documenting procedures performed. 
+. Assist in continuous monitoring of operational metrics and fraud indicators. 
+. Assist in the development of solutions and recommendations for improving data integrity issues. 
+. Assist in the development of business rules to support programming for risk based analysis and/or risk based modeling. 
+. Assist in the research and implement industry best practices for Audit Data Analytics. 
+. Assist in the training and development for analytic tools such as ACL, Tableau, Excel, and Business Objects for the Audit Division. 
+
+SUPERVISORY RESPONSIBILITIES: None 
+
+MINIMUM KNOWLEDGE, SKILLS AND ABILITIES REQUIRED: 
+. Bachelor's degree in Computer Science, Management Information Systems, or Business Analytics. Other related academic majors (e.g., Accounting or Audit) should be accompanied by relevant additional work experience. 
+. Minimum of 1 year experience performing analytics with of SAS, Python, Tableau, Business Objects, ACL, FOCUS, and/or Cognos. 
+. Working knowledge of programming languages such as VB and/or SQL to develop ad-hoc tools and queries/reports. 
+. RPA development experience preferred but is not required. 
+. Minimum of 1 year of experience performing advanced data discovery techniques such as exploring system tables and identifying necessary data to perform analytics. 
+. Ability to effectively communicate and present technical results and their business impact. 
+. Ability to demonstrate leadership skills while working within teams and maintain professional composure in a dynamic work environment that often requires project management of multiple tasks. 
+. Ability to demonstrate sound judgment and an ability to apply logical/critical thought processes when developing solutions. 
+. Ability to adjust to multiple demands and changing priorities. 
+. Results and goal orientated. 
+. Ability to apply analytical thinking when problem solving and developing business solutions. 
+. Ability to maintain objectivity in all aspects of position. 
+. Proficient with Microsoft Windows and other related applications. 
+. Demonstrated knowledge of automated data analysis tools and techniques. 
+
+WORKING CONDITIONS: 
+. Normal office environment with little exposure to dust, noise, temperature and the like. 
+. Extended viewing of CRT screen. 
